@@ -1,16 +1,89 @@
-# React + Vite
+# Calculadora de Aportes para Dependientes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web construida con **React + Vite** para calcular de forma rápida los aportes mensuales de un trabajador **dependiente** en Colombia a:
 
-Currently, two official plugins are available:
+- **Salud (4%)**F
+- **Pensión (16%)**
+- **ARL** (según nivel de riesgo)
+- **Caja de compensación (4%)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Incluye validación de **IBC mínimo** (usa el **Salario Mínimo 2026** como base cuando el IBC ingresado es menor).
 
-## React Compiler
+<img width="1237" height="749" alt="image" src="https://github.com/user-attachments/assets/f1faf9ff-3442-4fff-8575-7bb49f148fd1" />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Funcionalidades
+
+- Ingreso de **Ingreso Base de Cotización (IBC)**.
+- Selección de **Nivel de Riesgo ARL** (1 a 5) con su porcentaje correspondiente.
+- Cálculo automático de:
+  - Salud: `IBC * 0.04`
+  - Pensión: `IBC * 0.16`
+  - ARL: `IBC * % según riesgo`
+  - Caja: `IBC * 0.04`
+  - **Total**: suma de todos los aportes
+- Formato de moneda **COP (es-CO)**.
+- Si el IBC es menor al mínimo, se muestra un aviso y se calcula con el mínimo.
+
+---
+
+## Tecnologías
+
+- **React**
+- **Vite**
+- **Tailwind CSS**
+
+---
+
+## Requisitos
+
+- **Node.js** 
+- **npm** (incluido con Node)
+
+---
+
+## Instalación y ejecución (local)
+
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/GitDevCamilo/calculadora_aportes_dependientes.git
+   ```
+
+2. Entra a la carpeta del proyecto:
+   ```bash
+   cd calculadora_aportes_dependientes
+   ```
+
+3. Instala dependencias:
+   ```bash
+   npm install
+   ```
+
+4. Inicia el servidor de desarrollo:
+   ```bash
+   npm run dev
+   ```
+
+5. Abre la URL que te muestra la terminal (normalmente):
+   - `http://localhost:5173`
+
+---
+
+## Scripts disponibles
+
+- `npm run dev` — entorno de desarrollo
+- `npm run build` — build de producción
+- `npm run preview` — previsualización local del build
+- `npm run lint` — análisis con ESLint
+
+---
+
+## Estructura del proyecto
+
+- `src/main.jsx` — punto de entrada de React
+- `src/App.jsx` — interfaz y lógica principal de cálculo
+- `src/index.css` — estilos base
+
+---
